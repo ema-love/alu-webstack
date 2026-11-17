@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 # Displays the DNS record type and destination of a domain's subdomains
 
 dns_info() {
@@ -13,8 +14,8 @@ dns_info() {
         return
     fi
 
-    echo "$result" | awk -v subdomain="$subdomain" '
-    {
+    printf '%s\n' "$result" | awk -v subdomain="$subdomain" '
+    $3 == "IN" && NF >= 5 {
         print "The subdomain " subdomain " is a " $4 \
         " record and points to " $5
     }'
