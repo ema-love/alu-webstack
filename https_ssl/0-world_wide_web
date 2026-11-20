@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 # Displays the DNS record type and destination of a domain's subdomains
 
 dns_info() {
